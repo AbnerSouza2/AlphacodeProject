@@ -2,8 +2,7 @@
 
 <?php #Salvar as informaçoes editadas e voltar para a pagina de cadastro.
 
-    include_once('config.php');
-
+   include_once('config.php');
     if(isset($_POST['update']))
     {
         $id = $_POST['id'];
@@ -22,5 +21,4 @@
         
     }
     header('Location: index.php');
-
 ?>

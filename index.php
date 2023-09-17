@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" type="text/javascript"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="script.js" type="text/javascript"></script>
+    
     <title>Cadastro Alphacode</title>
 </head>
 <body>
-  
+
 
   <?php #Incluir config.php no index e pegar informaçoes do sql (tbclientes).
   include_once('config.php');
@@ -25,15 +26,15 @@
   </header>
 
     <div class="container-fluid containerpai">
-      <form method="post" name="cadastrocliente" action="ainstbc.php">
+      <form method="post" name="cadastrocliente" id="cadastrocliente" action="ainstbc.php">
         <div class="row-fluid conteinergeral ">
             <div class="col-sm-6 col-md-6 g1 ">
-                <label class="labels" for="nome" >Nome Completo</label>
-                <input class="inputs" type="text" id="nome" name="nome" required placeholder="Ex: Abner de Souza">
+                <label class="labels" for="nome">Nome Completo</label>
+                <input class="inputs" type="text" id="nome" name="nome" onclick=changeColor() required placeholder="Ex: Abner de Souza">
                 <label class="labels" for="email">E-mail</label>
                 <input class="inputs" type="email" id="email" name="email" required   placeholder="Ex: abnersouza26@gmail.com">
                 <label class="labels" for="telefone">Telefone</label>
-                <input class="inputs" type="tel" id="telefone" name="telefone" required  pattern="\(\d{2}\)\d{4,5}-\d{4}$" required placeholder="Ex: (xx)xxxx-xxxx">
+                <input class="inputs" type="tel" id="telefone" onkeyup="handlePhone(event)" name="telefone" required placeholder="Ex: (xx)xxxx-xxxx">
               
                 <div class="form-check checkstyleleft">
                     <input class="form-check-input" name="possuiwhats"  type="checkbox" value="on" id="flexCheckDefault">
@@ -56,7 +57,7 @@
                 <label class="labels" for="profissao">Profissão</label>
                 <input class="inputs" type="text" id="profissao" name="profissao" required  placeholder="Ex: Desenvolvedor FullStack">
                 <label class="labels" for="celular">Celular</label>
-                <input class="inputs" type="tel" id="celular" pattern="\(\d{2}\)\d{4,5}-\d{4}$" required name="celular" placeholder="Ex: (xx)xxxxx-xxxx">
+                <input class="inputs" type="tel" id="celular" onkeyup="handlePhone(event)"  required name="celular" placeholder="Ex: (xx)xxxxx-xxxx">
                 <div class="form-check checkstyleright">
                     <input class="form-check-input" name="notficacaoemail"  type="checkbox" value="on" id="flexCheckChecked" checked>
                     <label class="form-check-label" for="flexCheckChecked">
@@ -65,8 +66,8 @@
                 </div>
 
                 <div class="btncadastrar">
-                    <button type="submit" name="cadastrar" value="cadastrar">Cadastrar contato </button>                
-                  </div>
+                    <button type="submit" onclick="changecolor()" id="color" name="cadastrar" value="cadastrar">Cadastrar contato </button>                
+                  </div>  
 
             </div>
         </div>
