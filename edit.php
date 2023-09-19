@@ -83,7 +83,6 @@
   font-size: bold;
 }
 
-
 </style>
 
 <form class="conteinerpaiedit" method="post" name="cadastrocliente" action="saveEdit.php">
@@ -100,7 +99,7 @@
                 <label class="labels" for="email">E-mail</label>
                 <input class="inputs" type="email" id="email" name="email" value="<?php echo $email ?>"  placeholder="Ex: abnersouza26@gmail.com">
                 <label class="labels" for="telefone">Telefone</label>
-                <input class="inputs" type="text" id="telefone" name="telefone" value="<?php echo $telefone ?>" pattern="\(\d{2}\)\d{4,5}-\d{4}$" placeholder="Ex: (xx)xxxxx-xxxx">
+                <input class="inputs" type="text" id="telefone" onkeyup="handlePhone(event)"  name="telefone" value="<?php echo $telefone ?>" placeholder="Ex: (xx)xxxxx-xxxx">
                 <button class="btnvoltar"><a href="index.php">Voltar</a></button>      
             </div>
       
@@ -111,7 +110,7 @@
                 <label class="labels" for="profissao">Profissão</label>
                 <input class="inputs" type="text" id="profissao" name="profissao" value="<?php echo $profissao ?>" placeholder="Ex: Desenvolvedor FullStack">
                 <label class="labels" for="celular">Celular</label>
-                <input class="inputs" type="tel" id="celular" pattern="\(\d{2}\)\d{4,5}-\d{4}$" required name="celular" value="<?php echo $celular ?>" placeholder="Ex: (xx)xxxxx-xxxx">             
+                <input class="inputs" type="tel" id="celular" onkeyup="handlePhone(event)"  required name="celular" value="<?php echo $celular ?>" placeholder="Ex: (xx)xxxxx-xxxx">             
                 <input type="hidden" name="id" value="<?php echo $id ?>">
                 <div class="btneditar">
                     <button type="submit" name="update" id="update">Salvar </button>
